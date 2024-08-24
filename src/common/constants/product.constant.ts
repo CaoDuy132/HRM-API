@@ -1,0 +1,13 @@
+export const SEARCH_TYPE = {
+  ALL_PRODUCT: 1,
+  IMEI_NO: 2,
+  PRODUCT_IMEI: 3,
+  PRODUCT_ACCESSORY: 4,
+};
+
+export const MAX_ID = 50000000;
+
+export const MIN_WARRANTY_CHARACTERS_LIMIT = 20;
+export const MIN_WARRANTY_DESCRIPTION_LIMIT = 10;
+export const MAX_DIGITS_BARCODE = 15;
+export const MAX_BARCODE = 3000000000000;

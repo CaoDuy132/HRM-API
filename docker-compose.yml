@@ -1,0 +1,35 @@
+version: '3'
+services:
+  backend:
+    container_name: hrm-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      # GNU Time Environment
+      - TZ=Asia/Ho_Chi_Minh
+
+      # Node environments
+      - NODE_ENV=$NODE_ENV
+      - APP_PORT=$APP_PORT
+
+    volumes:
+      - .:/home/node/app
+      - /home/node/app/node_modules/
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - '3017:3000'
+    networks:
+      - app_network
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
+
+networks:
+  app_network:
